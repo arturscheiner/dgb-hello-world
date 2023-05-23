@@ -9,6 +9,24 @@
         "failOnError": false
       },
       "id": "891ebfeb-4c62-4580-a846-442cccc05f26"
+    },
+    {
+      "type": "connector",
+      "name": "ftp-connector",
+      "stepName": "FTP",
+      "accountLabel": "",
+      "params": {
+        "host": "ftp.server.com.br",
+        "port": 21,
+        "fileName": "local-test.pdf",
+        "remoteFileName": "test.pdf",
+        "remoteDirectory": "folder",
+        "ftpOperation": "STOR",
+        "failOnError": false,
+        "isBinary": true,
+        "remoteVerification": true
+      },
+      "id": "a10bf09d-3f40-4134-8354-129972b43532"
     }
   ]
 }
