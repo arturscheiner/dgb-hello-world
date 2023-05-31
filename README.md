@@ -4,5 +4,4 @@
 Hello World
 Block-Execution
 JSON Generator
-Blob Storage (Azure)
 ```
