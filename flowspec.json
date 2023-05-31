@@ -28,6 +28,21 @@
         "failOnError": false
       },
       "id": "9a2887d1-0be7-471a-8bef-c5f43af510cc"
+    },
+    {
+      "type": "connector",
+      "name": "Azure-Blob-Storage-Connector",
+      "stepName": "Blob Storage (Azure)",
+      "accountLabel": "azure",
+      "params": {
+        "operation": "upload",
+        "fileName": "file.csv",
+        "remoteFileName": "test.csv",
+        "containerName": "container",
+        "showFileLink": true,
+        "failOnError": false
+      },
+      "id": "a46cbc6a-4735-4e20-87f8-e96e335fae12"
     }
   ],
   "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack": [
