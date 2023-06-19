@@ -21,6 +21,20 @@
       "id": "8680a68e-d58b-45bc-abdd-f2229d73fa8c"
     },
     {
+      "type": "connector",
+      "name": "for-each-connector",
+      "stepName": "For Each",
+      "params": {
+        "jsonPath": "$",
+        "itemIdentifier": "",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "30c16054-d516-40e7-a499-8ae815d5f811-onProcessTrack",
+        "onException": "30c16054-d516-40e7-a499-8ae815d5f811-onExceptionTrack"
+      },
+      "id": "30c16054-d516-40e7-a499-8ae815d5f811"
+    },
+    {
       "name": "json-generator-connector",
       "type": "connector",
       "stepName": "JSON Generator",
@@ -75,6 +89,30 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "61896575-6d21-4e5e-9fd9-747ef4bbff2b"
+    }
+  ],
+  "30c16054-d516-40e7-a499-8ae815d5f811-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "json-transformer-connector",
+      "stepName": "JSON Transformer",
+      "params": {
+        "failOnError": false
+      },
+      "id": "e7b646d0-b76e-4952-ba91-c6300bf636fe"
+    }
+  ],
+  "30c16054-d516-40e7-a499-8ae815d5f811-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "0e5969b9-97e2-49cf-b605-e68fe917a30d"
     }
   ],
   "11356876-4156-493b-8b7f-58aa05f40c0d:cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb": [
