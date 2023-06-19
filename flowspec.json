@@ -100,6 +100,42 @@
         "failOnError": false
       },
       "id": "e7b646d0-b76e-4952-ba91-c6300bf636fe"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Block do For-Each",
+      "params": {
+        "onProcess": "19177c23-6fe1-4806-8819-af526bda360a-onProcessTrack",
+        "onException": "19177c23-6fe1-4806-8819-af526bda360a-onExceptionTrack"
+      },
+      "id": "19177c23-6fe1-4806-8819-af526bda360a",
+      "description": "Document here what this block is supposed to do."
+    }
+  ],
+  "19177c23-6fe1-4806-8819-af526bda360a-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log do Block do For-Each",
+      "params": {
+        "logLevel": "INFO",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "9131657b-f0cc-4bff-9eb2-d94eaf84583b"
+    }
+  ],
+  "19177c23-6fe1-4806-8819-af526bda360a-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error do Block do For-Each",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "120cce17-9d95-45a8-9193-2b3f42374e60"
     }
   ],
   "30c16054-d516-40e7-a499-8ae815d5f811-onExceptionTrack": [
