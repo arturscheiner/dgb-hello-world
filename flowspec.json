@@ -31,16 +31,13 @@
       "id": "9a2887d1-0be7-471a-8bef-c5f43af510cc"
     },
     {
-      "type": "choice",
-      "stepName": "Choice",
-      "when": [
-        {
-          "target": "condition-1",
-          "jsonPath": "$"
-        }
-      ],
-      "otherwise": "condition-2",
-      "id": "ab28e632-365e-43a3-9609-00a8117d399e"
+      "type": "connector",
+      "name": "parallel-execution-connector",
+      "stepName": "Parallel Execution",
+      "params": {
+        "parallelExecutions": "[{\"description\":\"execution-1\",\"executionId\":\"execution-1\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb\"},{\"description\":\"execution-2\",\"executionId\":\"execution-2\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:ca26adad-e8d6-4241-8901-c398ed66da47\"},{\"description\":\"execution-3\",\"executionId\":\"execution-3\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:9b869224-0edb-462b-b736-d9a537a23456\"}]"
+      },
+      "id": "11356876-4156-493b-8b7f-58aa05f40c0d"
     }
   ],
   "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack": [
@@ -80,7 +77,7 @@
       "id": "61896575-6d21-4e5e-9fd9-747ef4bbff2b"
     }
   ],
-  "condition-1": [
+  "11356876-4156-493b-8b7f-58aa05f40c0d:cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb": [
     {
       "type": "connector",
       "name": "log-connector",
@@ -89,10 +86,10 @@
         "logLevel": "ERROR",
         "message": "Error processing message {{ message.$.myField }}"
       },
-      "id": "bab40d8c-c8b0-4153-a0e5-ffa8b0f44aa9"
+      "id": "cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb"
     }
   ],
-  "condition-2": [
+  "11356876-4156-493b-8b7f-58aa05f40c0d:ca26adad-e8d6-4241-8901-c398ed66da47": [
     {
       "type": "connector",
       "name": "log-connector",
@@ -101,7 +98,19 @@
         "logLevel": "ERROR",
         "message": "Error processing message {{ message.$.myField }}"
       },
-      "id": "8bfbe92d-64cb-40cb-ad41-a076ad4f8fbd"
+      "id": "ca26adad-e8d6-4241-8901-c398ed66da47"
+    }
+  ],
+  "11356876-4156-493b-8b7f-58aa05f40c0d:9b869224-0edb-462b-b736-d9a537a23456": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "9b869224-0edb-462b-b736-d9a537a23456"
     }
   ]
 }
