@@ -41,6 +41,19 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "6b17c8d5-1234-4472-a99d-4c77a04141eb"
+    },
+    {
+      "type": "session-management",
+      "stepName": "Session Management",
+      "operation": "GET",
+      "sessionType": "LOCAL",
+      "scoped": false,
+      "fields": [
+        "body",
+        "data",
+        "id"
+      ],
+      "id": "852918cb-6efd-4641-b268-b381342f89b4"
     }
   ],
   "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack": [
