@@ -13,12 +13,13 @@
     {
       "type": "connector",
       "name": "block-execution-connector",
-      "stepName": "Block-Execution",
+      "stepName": "Bloco de Validação Inicial",
       "params": {
         "onProcess": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack",
         "onException": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack"
       },
-      "id": "8680a68e-d58b-45bc-abdd-f2229d73fa8c"
+      "id": "8680a68e-d58b-45bc-abdd-f2229d73fa8c",
+      "description": "Document here what this block is supposed to do."
     },
     {
       "type": "connector",
@@ -58,9 +59,9 @@
     {
       "type": "connector",
       "name": "log-connector",
-      "stepName": "Log",
+      "stepName": "Log de Validação Inicial",
       "params": {
-        "logLevel": "ERROR",
+        "logLevel": "INFO",
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "6b17c8d5-1234-4472-a99d-4c77a04141eb"
