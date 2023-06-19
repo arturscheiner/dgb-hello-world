@@ -15,7 +15,8 @@
       "name": "block-execution-connector",
       "stepName": "Block-Execution",
       "params": {
-        "onProcess": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack"
+        "onProcess": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack",
+        "onException": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack"
       },
       "id": "8680a68e-d58b-45bc-abdd-f2229d73fa8c"
     },
@@ -40,6 +41,18 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "6b17c8d5-1234-4472-a99d-4c77a04141eb"
+    }
+  ],
+  "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log - onException",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "61896575-6d21-4e5e-9fd9-747ef4bbff2b"
     }
   ]
 }
