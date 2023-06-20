@@ -1,20 +1,6 @@
 {
   "start": [
     {
-      "type": "connector",
-      "name": "digibee-storage-connector",
-      "stepName": "Digibee Storage",
-      "params": {
-        "operation": "upload",
-        "fileName": "local-pdf-test.pdf",
-        "remoteFileName": "pdf-test.pdf",
-        "showFileLink": false,
-        "expirationMillis": 36000,
-        "remoteDirectory": "folder"
-      },
-      "id": "31a07dec-165c-4d2f-9160-2bb4012752a5"
-    },
-    {
       "name": "json-generator-connector",
       "type": "connector",
       "stepName": "Hello World",
