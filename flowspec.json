@@ -297,6 +297,10 @@
         {
           "target": "se nao funcionar",
           "jsonPath": "$"
+        },
+        {
+          "target": "se funcionar parcialmente",
+          "jsonPath": "$"
         }
       ],
       "otherwise": "se funcionar",
@@ -313,6 +317,18 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "e5092860-7621-4266-8b2c-5f294631d88a"
+    }
+  ],
+  "se funcionar parcialmente": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "2880b982-1553-45e5-83c6-644f90e5922f"
     }
   ],
   "se funcionar": [
