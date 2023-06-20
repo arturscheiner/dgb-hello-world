@@ -23,6 +23,21 @@
     },
     {
       "type": "connector",
+      "name": "Azure-Blob-Storage-Connector",
+      "stepName": "Blob Storage (Azure)",
+      "accountLabel": "azure",
+      "params": {
+        "operation": "upload",
+        "fileName": "file.csv",
+        "remoteFileName": "test.csv",
+        "containerName": "container",
+        "showFileLink": true,
+        "failOnError": false
+      },
+      "id": "97246f73-c40f-470e-bbc0-72882df729da"
+    },
+    {
+      "type": "connector",
       "name": "for-each-connector",
       "stepName": "For Each",
       "params": {
