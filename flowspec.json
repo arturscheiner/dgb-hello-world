@@ -289,6 +289,42 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "ca26adad-e8d6-4241-8901-c398ed66da47"
+    },
+    {
+      "type": "choice",
+      "stepName": "Decidir se Funciona",
+      "when": [
+        {
+          "target": "se nao funcionar",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "se funcionar",
+      "id": "58a231fa-160a-429f-ab86-7121e7c54030"
+    }
+  ],
+  "se nao funcionar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "e5092860-7621-4266-8b2c-5f294631d88a"
+    }
+  ],
+  "se funcionar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "c059ac8f-2c46-48ec-ac8c-32abb3d86f2a"
     }
   ],
   "11356876-4156-493b-8b7f-58aa05f40c0d:9b869224-0edb-462b-b736-d9a537a23456": [
