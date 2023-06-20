@@ -36,26 +36,6 @@
       "id": "30c16054-d516-40e7-a499-8ae815d5f811"
     },
     {
-      "type": "capsule",
-      "name": "capsule-v1-demo-demo-crud-client-1.0",
-      "capsuleCollection": "demo",
-      "capsuleCollectionVersion": 1,
-      "capsule": "crud-client-1.0",
-      "capsuleVersionMajor": 1,
-      "capsuleVersionMinor": 0,
-      "stepName": "CRUD-Client",
-      "params": {
-        "urlDataBase": "jdbc:mysql://123.123.2.2:4443/database_name",
-        "operation": "Read",
-        "clientId": "1",
-        "payloadCreateUpdate": "{     \"client\": {         \"name\": \"\",         \"age\": \"\",         \"id\": \"\",         \"address\": \"{             \"street\": \"\",             \"number\": \"\",             \"district\": \"\",             \"city\": \"\",             \"province\": \"\",             \"country\": \"\"         }     } }"
-      },
-      "accountLabels": {
-        "data base authentication credential": ""
-      },
-      "id": "584ac1ca-2f5b-41c9-8628-79bdc5f36053"
-    },
-    {
       "name": "json-generator-connector",
       "type": "connector",
       "stepName": "JSON Generator",
@@ -144,6 +124,70 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "9131657b-f0cc-4bff-9eb2-d94eaf84583b"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Block-Execution",
+      "params": {
+        "onProcess": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onProcessTrack",
+        "onException": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onExceptionTrack"
+      },
+      "id": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd"
+    }
+  ],
+  "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "66174384-a15d-41c7-8784-8c307cc47a51"
+    },
+    {
+      "type": "connector",
+      "accountLabel": "mysql",
+      "name": "sap-connector",
+      "stepName": "SAP (IDoc and RFC)",
+      "params": {
+        "failOnError": false,
+        "operation": "RFC",
+        "asHost": "localhost",
+        "lang": "en",
+        "client": "400",
+        "sysnr": "01",
+        "RFC": "YYPCL_RFC_ORDEM_FATURA",
+        "sapRequestTemplate": "<?xml version=\"1.0\" encoding=\"ASCII\"?><YYPCL_RFC_ORDEM_FATURA:Request xmlns:YYPCL_RFC_ORDEM_FATURA=\"http://sap.fusesource.org/rfc/QAS/YYPCL_RFC_ORDEM_FATURA\" P_ERDAT_INI=\"2018-07-01T00:00:00.000\" P_ERDAT_FIM=\"2018-08-01T00:00:00.000\" CLIENTE=\"\" VKORG=\"0050\" AUART=\"\" />"
+      },
+      "id": "fc76cac2-69ba-4059-b685-68f570867c87"
+    }
+  ],
+  "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onExceptionTrack": [
+    {
+      "type": "connector",
+      "stepName": "Event Publisher",
+      "name": "event-publisher-connector",
+      "params": {
+        "eventName": "{{ DEFAULT(message.eventName, \"new-event\") }}",
+        "body": "{{ message.$ }}",
+        "showSendEventLog": false,
+        "stopOnError": false
+      },
+      "id": "b582f763-39f9-4ae7-82e8-110c50af6f08"
+    },
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "9037c7ac-bdd1-465b-8d09-72029ecd5d1f"
     }
   ],
   "19177c23-6fe1-4806-8819-af526bda360a-onExceptionTrack": [
@@ -163,7 +207,7 @@
     {
       "type": "connector",
       "name": "throw-error-connector",
-      "stepName": "Throw Error",
+      "stepName": "Throw Error do For-Each",
       "params": {
         "errorMessage": "Error occurred.",
         "errorCode": 500,
