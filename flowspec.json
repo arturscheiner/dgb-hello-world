@@ -143,7 +143,7 @@
     {
       "type": "connector",
       "name": "throw-error-connector",
-      "stepName": "Throw Error",
+      "stepName": "Throw Error do For-Each",
       "params": {
         "errorMessage": "Error occurred.",
         "errorCode": 500,
