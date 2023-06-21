@@ -5,6 +5,5 @@ Hello World
 Bloco de Validação Inicial
 Blob Storage (Azure)
 For Each
-JSON Generator
-Choice
+Parallel Execution
 ```
