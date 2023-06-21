@@ -1,0 +1,394 @@
+{
+  "start": [
+    {
+      "name": "json-generator-connector",
+      "type": "connector",
+      "stepName": "Hello World",
+      "params": {
+        "json": "{\n    \"message\": \"Hello World\"\n}",
+        "failOnError": false
+      },
+      "id": "891ebfeb-4c62-4580-a846-442cccc05f26"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Bloco de Validação Inicial",
+      "params": {
+        "onProcess": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack",
+        "onException": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack"
+      },
+      "id": "8680a68e-d58b-45bc-abdd-f2229d73fa8c",
+      "description": "Document here what this block is supposed to do."
+    },
+    {
+      "type": "connector",
+      "name": "Azure-Blob-Storage-Connector",
+      "stepName": "Blob Storage (Azure)",
+      "accountLabel": "azure",
+      "params": {
+        "operation": "upload",
+        "fileName": "file.csv",
+        "remoteFileName": "test.csv",
+        "containerName": "container",
+        "showFileLink": true,
+        "failOnError": false
+      },
+      "id": "97246f73-c40f-470e-bbc0-72882df729da"
+    },
+    {
+      "type": "connector",
+      "name": "for-each-connector",
+      "stepName": "For Each",
+      "params": {
+        "jsonPath": "$",
+        "itemIdentifier": "",
+        "parallel": false,
+        "failOnError": false,
+        "onProcess": "30c16054-d516-40e7-a499-8ae815d5f811-onProcessTrack",
+        "onException": "30c16054-d516-40e7-a499-8ae815d5f811-onExceptionTrack"
+      },
+      "id": "30c16054-d516-40e7-a499-8ae815d5f811"
+    },
+    {
+      "name": "json-generator-connector",
+      "type": "connector",
+      "stepName": "JSON Generator",
+      "params": {
+        "json": "{}",
+        "failOnError": false
+      },
+      "id": "9a2887d1-0be7-471a-8bef-c5f43af510cc"
+    },
+    {
+      "type": "connector",
+      "name": "parallel-execution-connector",
+      "stepName": "Parallel Execution",
+      "params": {
+        "parallelExecutions": "[{\"description\":\"execution-1\",\"executionId\":\"execution-1\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb\"},{\"description\":\"execution-2\",\"executionId\":\"execution-2\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:ca26adad-e8d6-4241-8901-c398ed66da47\"},{\"description\":\"execution-3\",\"executionId\":\"execution-3\",\"target\":\"11356876-4156-493b-8b7f-58aa05f40c0d:9b869224-0edb-462b-b736-d9a537a23456\"}]"
+      },
+      "id": "11356876-4156-493b-8b7f-58aa05f40c0d"
+    }
+  ],
+  "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log de Validação Inicial",
+      "params": {
+        "logLevel": "INFO",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "6b17c8d5-1234-4472-a99d-4c77a04141eb"
+    },
+    {
+      "type": "session-management",
+      "stepName": "Session Management",
+      "operation": "GET",
+      "sessionType": "LOCAL",
+      "scoped": false,
+      "fields": [
+        "body",
+        "data",
+        "id"
+      ],
+      "id": "852918cb-6efd-4641-b268-b381342f89b4"
+    }
+  ],
+  "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log - onException",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "61896575-6d21-4e5e-9fd9-747ef4bbff2b"
+    }
+  ],
+  "30c16054-d516-40e7-a499-8ae815d5f811-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "json-transformer-connector",
+      "stepName": "JSON Transformer",
+      "params": {
+        "failOnError": false
+      },
+      "id": "e7b646d0-b76e-4952-ba91-c6300bf636fe"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Block do For-Each",
+      "params": {
+        "onProcess": "19177c23-6fe1-4806-8819-af526bda360a-onProcessTrack",
+        "onException": "19177c23-6fe1-4806-8819-af526bda360a-onExceptionTrack"
+      },
+      "id": "19177c23-6fe1-4806-8819-af526bda360a",
+      "description": "Document here what this block is supposed to do."
+    }
+  ],
+  "19177c23-6fe1-4806-8819-af526bda360a-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log do Block do For-Each",
+      "params": {
+        "logLevel": "INFO",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "9131657b-f0cc-4bff-9eb2-d94eaf84583b"
+    },
+    {
+      "type": "connector",
+      "name": "block-execution-connector",
+      "stepName": "Block-Execution",
+      "params": {
+        "onProcess": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onProcessTrack",
+        "onException": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onExceptionTrack"
+      },
+      "id": "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd"
+    }
+  ],
+  "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onProcessTrack": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "66174384-a15d-41c7-8784-8c307cc47a51"
+    },
+    {
+      "type": "connector",
+      "accountLabel": "mysql",
+      "name": "sap-connector",
+      "stepName": "SAP (IDoc and RFC)",
+      "params": {
+        "failOnError": false,
+        "operation": "RFC",
+        "asHost": "localhost",
+        "lang": "en",
+        "client": "400",
+        "sysnr": "01",
+        "RFC": "YYPCL_RFC_ORDEM_FATURA",
+        "sapRequestTemplate": "<?xml version=\"1.0\" encoding=\"ASCII\"?><YYPCL_RFC_ORDEM_FATURA:Request xmlns:YYPCL_RFC_ORDEM_FATURA=\"http://sap.fusesource.org/rfc/QAS/YYPCL_RFC_ORDEM_FATURA\" P_ERDAT_INI=\"2018-07-01T00:00:00.000\" P_ERDAT_FIM=\"2018-08-01T00:00:00.000\" CLIENTE=\"\" VKORG=\"0050\" AUART=\"\" />"
+      },
+      "id": "fc76cac2-69ba-4059-b685-68f570867c87"
+    }
+  ],
+  "4f8eea97-b6a6-46f6-a2f3-dedbe72895cd-onExceptionTrack": [
+    {
+      "type": "connector",
+      "stepName": "Event Publisher",
+      "name": "event-publisher-connector",
+      "params": {
+        "eventName": "{{ DEFAULT(message.eventName, \"new-event\") }}",
+        "body": "{{ message.$ }}",
+        "showSendEventLog": false,
+        "stopOnError": false
+      },
+      "id": "b582f763-39f9-4ae7-82e8-110c50af6f08"
+    },
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "9037c7ac-bdd1-465b-8d09-72029ecd5d1f"
+    }
+  ],
+  "19177c23-6fe1-4806-8819-af526bda360a-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error do Block do For-Each",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "120cce17-9d95-45a8-9193-2b3f42374e60"
+    }
+  ],
+  "30c16054-d516-40e7-a499-8ae815d5f811-onExceptionTrack": [
+    {
+      "type": "connector",
+      "name": "throw-error-connector",
+      "stepName": "Throw Error do For-Each",
+      "params": {
+        "errorMessage": "Error occurred.",
+        "errorCode": 500,
+        "customErrorEnabled": false
+      },
+      "id": "0e5969b9-97e2-49cf-b605-e68fe917a30d"
+    }
+  ],
+  "11356876-4156-493b-8b7f-58aa05f40c0d:cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "cb8e42b8-21e0-4ed5-a2fd-68c21b8b74fb"
+    },
+    {
+      "type": "choice",
+      "stepName": "Choice",
+      "when": [
+        {
+          "target": "condition-1",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "condition-2",
+      "id": "ab28e632-365e-43a3-9609-00a8117d399e"
+    }
+  ],
+  "condition-1": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "bab40d8c-c8b0-4153-a0e5-ffa8b0f44aa9"
+    }
+  ],
+  "condition-2": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "8bfbe92d-64cb-40cb-ad41-a076ad4f8fbd"
+    }
+  ],
+  "11356876-4156-493b-8b7f-58aa05f40c0d:ca26adad-e8d6-4241-8901-c398ed66da47": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "ca26adad-e8d6-4241-8901-c398ed66da47"
+    },
+    {
+      "type": "choice",
+      "stepName": "Decidir se Funciona",
+      "when": [
+        {
+          "target": "se nao funcionar",
+          "jsonPath": "$"
+        },
+        {
+          "target": "se funcionar parcialmente",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "se funcionar",
+      "id": "58a231fa-160a-429f-ab86-7121e7c54030"
+    }
+  ],
+  "se nao funcionar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "e5092860-7621-4266-8b2c-5f294631d88a"
+    }
+  ],
+  "se funcionar parcialmente": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "2880b982-1553-45e5-83c6-644f90e5922f"
+    }
+  ],
+  "se funcionar": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "c059ac8f-2c46-48ec-ac8c-32abb3d86f2a"
+    }
+  ],
+  "11356876-4156-493b-8b7f-58aa05f40c0d:9b869224-0edb-462b-b736-d9a537a23456": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "9b869224-0edb-462b-b736-d9a537a23456"
+    },
+    {
+      "type": "choice",
+      "stepName": "Choice",
+      "when": [
+        {
+          "target": "condition-3",
+          "jsonPath": "$"
+        }
+      ],
+      "otherwise": "condition-4",
+      "id": "33d5e807-401b-4459-86ed-c31b2647fb22"
+    }
+  ],
+  "condition-3": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "6c1a4049-0186-4c20-aae8-7b2417860a41"
+    }
+  ],
+  "condition-4": [
+    {
+      "type": "connector",
+      "name": "log-connector",
+      "stepName": "Log",
+      "params": {
+        "logLevel": "ERROR",
+        "message": "Error processing message {{ message.$.myField }}"
+      },
+      "id": "51d04764-2ec5-4e39-9824-94109b03ce91"
+    }
+  ]
+}
