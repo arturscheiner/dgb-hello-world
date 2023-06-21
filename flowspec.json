@@ -59,18 +59,6 @@
         "failOnError": false
       },
       "id": "9a2887d1-0be7-471a-8bef-c5f43af510cc"
-    },
-    {
-      "type": "choice",
-      "stepName": "Choice",
-      "when": [
-        {
-          "target": "condition-5",
-          "jsonPath": "$"
-        }
-      ],
-      "otherwise": "condition-6",
-      "id": "540e0db6-adef-43cd-b3ac-247e33c49f0d"
     }
   ],
   "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack": [
@@ -232,30 +220,6 @@
         "customErrorEnabled": false
       },
       "id": "0e5969b9-97e2-49cf-b605-e68fe917a30d"
-    }
-  ],
-  "condition-5": [
-    {
-      "type": "connector",
-      "name": "log-connector",
-      "stepName": "Log",
-      "params": {
-        "logLevel": "ERROR",
-        "message": "Error processing message {{ message.$.myField }}"
-      },
-      "id": "bdbcac2a-0f5a-426b-b6c3-a12020dcaa60"
-    }
-  ],
-  "condition-6": [
-    {
-      "type": "connector",
-      "name": "log-connector",
-      "stepName": "Log",
-      "params": {
-        "logLevel": "ERROR",
-        "message": "Error processing message {{ message.$.myField }}"
-      },
-      "id": "242a22a5-dd5c-4756-b7b7-f2d376af121a"
     }
   ]
 }
