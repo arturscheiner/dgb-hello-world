@@ -24,14 +24,24 @@
     {
       "type": "connector",
       "name": "Azure-Blob-Storage-Connector",
-      "stepName": "Blob Storage (Azure)",
-      "accountLabel": "azure",
+      "stepName": "Blob Storage (Azure)m",
+      "accountLabel": "banco-andre",
       "params": {
         "operation": "upload",
-        "fileName": "file.csv",
-        "remoteFileName": "test.csv",
+        "overwriteOnUpload": true,
+        "pageSize": "",
+        "prefix": "",
+        "nextToken": false,
         "containerName": "container",
+        "blobAccountName": "",
+        "remoteFileName": "test.csv",
+        "fileName": "file.csv",
         "showFileLink": true,
+        "includeSnapshot": false,
+        "includeMetadata": false,
+        "includeUncommitedBlobs": false,
+        "includeCopy": false,
+        "includeDelete": false,
         "failOnError": false
       },
       "id": "97246f73-c40f-470e-bbc0-72882df729da"
