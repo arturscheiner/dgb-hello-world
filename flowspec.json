@@ -3,7 +3,7 @@
     {
       "name": "json-generator-connector",
       "type": "connector",
-      "stepName": "Hello World",
+      "stepName": "Hello Worlds",
       "params": {
         "json": "{\n    \"message\": \"Hello World\"\n}",
         "failOnError": false
