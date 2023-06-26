@@ -2,7 +2,7 @@
   "name" : "dgb-hello-world",
   "id" : "bf689f7a-8b05-4b3a-bb3a-8f20ce722ec7",
   "version" : "1.2",
-  "checksum" : "c2f04",
-  "summary" : "refactor!: add terminal field in the payment API eachs",
+  "checksum" : "27d75",
+  "summary" : "adjustments on the for-each loop",
   "description" : "BREAKING CHANGE: add the terminal field as a mandatory field to be able to buy products by different terminal numbers simple.\n\nthe terminal field is mandatory and the client needs to send it or else the API does not work\n\nPAYM-1301"
 }
