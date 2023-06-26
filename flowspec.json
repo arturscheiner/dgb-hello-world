@@ -24,7 +24,7 @@
     {
       "type": "connector",
       "name": "Azure-Blob-Storage-Connector",
-      "stepName": "Blob Storage (Azure)",
+      "stepName": "Blob Storage (Azure).",
       "accountLabel": "banco-andre",
       "params": {
         "operation": "upload",
