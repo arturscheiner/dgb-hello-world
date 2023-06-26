@@ -437,7 +437,7 @@
       "stepName": "Commit Message",
       "params": {
         "commit_summary": "refactor!: add terminal field in the payment API ",
-        "commit_description": "BREAKING CHANGE: add the terminal field as a mandatory field to be able to buy products by different terminal numbers\n\nthe terminal field is mandatory and the client needs to send it or else the API does not work\n\nPAYM-130"
+        "commit_description": "BREAKING CHANGE: add the terminal field as a mandatory field to be able to buy products by different terminal numbers 2\n\nthe terminal field is mandatory and the client needs to send it or else the API does not work\n\nPAYM-130"
       },
       "id": "718fed48-b04c-4521-b2f5-923925bfcab0"
     }
