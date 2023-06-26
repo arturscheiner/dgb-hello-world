@@ -425,21 +425,6 @@
         "message": "Error processing message {{ message.$.myField }}"
       },
       "id": "242a22a5-dd5c-4756-b7b7-f2d376af121a"
-    },
-    {
-      "type": "capsule",
-      "name": "capsule-v1-demo-devops-commit-message-1.0",
-      "capsuleCollection": "devops",
-      "capsuleCollectionVersion": 1,
-      "capsule": "commit-message-1.0",
-      "capsuleVersionMajor": 1,
-      "capsuleVersionMinor": 0,
-      "stepName": "Commit Message",
-      "params": {
-        "commit_summary": "refactor!: add terminal field in the payment API  eachs",
-        "commit_description": "BREAKING CHANGE: add the terminal field as a mandatory field to be able to buy products by different terminal numbers simple.\n\nthe terminal field is mandatory and the client needs to send it or else the API does not work\n\nPAYM-1301"
-      },
-      "id": "718fed48-b04c-4521-b2f5-923925bfcab0"
     }
   ]
 }
