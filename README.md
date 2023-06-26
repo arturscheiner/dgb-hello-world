@@ -2,7 +2,7 @@
 ## This is the pipeline components tree:
 ```bash
 Hello Worlds
-Bloco de Validação Inicials
+Bloco de Validação Inicial
 Blob Storage (Azure)
 For Each
 Choice
