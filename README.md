@@ -4,6 +4,6 @@
 Hello Worlds
 Bloco de Validação Inicial
 Blob Storage (Azure)
-For Eachs
+For Each
 Choice
 ```
