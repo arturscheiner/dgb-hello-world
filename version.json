@@ -2,5 +2,7 @@
   "name" : "dgb-hello-world",
   "id" : "fd2b2303-763a-4bf8-b504-3f439409cfba",
   "version" : "1.0",
-  "checksum" : "786bb"
+  "checksum" : "786bb",
+  "summary" : "Version 1.0.786bb",
+  "description" : "Commit Message Capsule not configured for this Pipeline. The default summary and description are being used."
 }
