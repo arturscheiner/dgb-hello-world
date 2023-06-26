@@ -24,7 +24,7 @@
     {
       "type": "connector",
       "name": "for-each-connector",
-      "stepName": "For Eachf",
+      "stepName": "For Each",
       "params": {
         "jsonPath": "$",
         "itemIdentifier": "",
