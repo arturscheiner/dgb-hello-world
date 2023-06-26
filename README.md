@@ -3,7 +3,6 @@
 ```bash
 Hello Worlds
 Bloco de Validação Inicial
-Blob Storage (Azure).
 For Each
 Choice
 ```
