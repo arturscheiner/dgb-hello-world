@@ -13,7 +13,7 @@
     {
       "type": "connector",
       "name": "block-execution-connector",
-      "stepName": "Bloco de Validação Inicial",
+      "stepName": "Bloco de Validação Iniciall",
       "params": {
         "onProcess": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onProcessTrack",
         "onException": "8680a68e-d58b-45bc-abdd-f2229d73fa8c-onExceptionTrack"
