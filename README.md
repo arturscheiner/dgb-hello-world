@@ -1,7 +1,7 @@
 ## This is the pipeline dgb-hello-world README:
 ## This is the pipeline components tree:
 ```bash
-Hello Worldss
+Hell World
 Bloco de Validação Iniciall
 For Each
 Choice
